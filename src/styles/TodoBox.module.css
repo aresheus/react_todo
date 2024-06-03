@@ -1,0 +1,113 @@
+:root {
+  --main-color: #1010187b;
+}
+
+.todoBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-basis: 400px;
+  position: relative;
+  border: thin solid rgba(255, 255, 255, 0.4);
+  padding: 2rem;
+}
+.todoBox h1,
+p {
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+.titleArea,
+.descArea {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.descArea p {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.idText {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  opacity: 0.5;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.buttons button {
+  flex: 1;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  outline: none;
+}
+
+.buttons button:nth-of-type(1) {
+  background-color: #f0db4f;
+  color: #252432;
+}
+.buttons button:nth-of-type(2) {
+  background-color: red;
+  color: white;
+}
+
+.buttons button:nth-of-type(1):hover {
+  background-color: #f1e38b;
+}
+.buttons button:nth-of-type(2):hover {
+  background-color: rgb(255, 65, 65);
+}
+
+.inputUpdate {
+  height: 40px;
+  padding-inline: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  background-color: var(--main-color);
+  color: white;
+}
+.textareaUpdate {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  background-color: var(--main-color);
+  color: white;
+}
+
+.update_btn {
+  height: 50px;
+  cursor: pointer;
+  background-color: #f0db4f;
+  color: #252432;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.update_btn:hover {
+  background-color: #f1e38b;
+}
