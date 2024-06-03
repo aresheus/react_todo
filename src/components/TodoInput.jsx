@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { TodoContext, useContext } from "../context/todo-context";
 import style from "../styles/TodoInput.module.css";
 
-export default function TodoInput({ sendData }) {
+export default function TodoInput() {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDesc, setInputDesc] = useState("");
+
+  const { handleSending } = useContext(TodoContext);
 
   function handleTitle(e) {
     setInputTitle(e.target.value);
@@ -24,7 +27,7 @@ export default function TodoInput({ sendData }) {
       setInputTitle("");
       setInputDesc("");
 
-      sendData(task);
+      handleSending(task);
     }
   }
 

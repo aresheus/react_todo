@@ -1,6 +1,7 @@
 import style from "./styles/App.module.css";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
+import { TodoContext } from "./context/todo-context";
 import { useEffect, useState } from "react";
 import {
   saveData,
@@ -35,14 +36,18 @@ function App() {
   }
 
   return (
-    <main className={style.main}>
-      <TodoInput sendData={handleSendingData} />
-      <TodoList
-        todos={todos}
-        handleDelete={deleteTodo}
-        handleUpdate={updateTodo}
-      />
-    </main>
+    <TodoContext.Provider
+      value={{
+        handleDelete: deleteTodo,
+        handleUpdate: updateTodo,
+        handleSending: handleSendingData,
+      }}
+    >
+      <main className={style.main}>
+        <TodoInput />
+        <TodoList todos={todos} />
+      </main>
+    </TodoContext.Provider>
   );
 }
 

@@ -1,17 +1,14 @@
 import { useState } from "react";
 import style from "../styles/TodoBox.module.css";
+import { TodoContext, useContext } from "../context/todo-context";
 
-export default function TodoBox({
-  title,
-  desc,
-  id,
-  handleDelete,
-  handleUpdate,
-}) {
+export default function TodoBox({ title, desc, id }) {
   const [showModal, setShowModal] = useState(false);
 
   const [inputTitle, setInputTitle] = useState("");
   const [inputDesc, setInputDesc] = useState("");
+
+  const { handleDelete, handleUpdate } = useContext(TodoContext);
 
   function handleTitle(e) {
     setInputTitle(e.target.value);

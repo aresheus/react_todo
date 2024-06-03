@@ -1,11 +1,9 @@
 function saveData(task) {
   const data = localStorage.getItem("data");
 
-  if (data) {
-    localStorage.setItem("data", JSON.stringify([...JSON.parse(data), task]));
-  } else {
-    localStorage.setItem("data", JSON.stringify([task]));
-  }
+  data
+    ? localStorage.setItem("data", JSON.stringify([...JSON.parse(data), task]))
+    : localStorage.setItem("data", JSON.stringify([task]));
 }
 
 function readDatas() {
@@ -21,12 +19,12 @@ function removeDataByID(id) {
   localStorage.setItem("data", JSON.stringify(tasksAfterRemoved));
 }
 
-function updateDataByID(todo) {
+function updateDataByID(editedTodo) {
   const tasks = JSON.parse(localStorage.getItem("data"));
 
-  const tasksAfterUpdated = tasks.map((x) => {
-    if (x.id == todo.id) return todo;
-    return x;
+  const tasksAfterUpdated = tasks.map((todo) => {
+    if (todo.id == editedTodo.id) return editedTodo;
+    return todo;
   });
 
   localStorage.setItem("data", JSON.stringify(tasksAfterUpdated));
