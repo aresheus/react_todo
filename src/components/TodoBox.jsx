@@ -10,13 +10,6 @@ export default function TodoBox({ title, desc, id }) {
 
   const { handleDelete, handleUpdate } = useContext(TodoContext);
 
-  function handleTitle(e) {
-    setInputTitle(e.target.value);
-  }
-  function handleDesc(e) {
-    setInputDesc(e.target.value);
-  }
-
   function handleUpdateModal() {
     setInputTitle(title);
     setInputDesc(desc);
@@ -48,7 +41,7 @@ export default function TodoBox({ title, desc, id }) {
               className={style.inputUpdate}
               placeholder="Title"
               value={inputTitle}
-              onChange={handleTitle}
+              onChange={(e) => setInputTitle(e.target.value)}
             />
           </div>
 
@@ -59,7 +52,7 @@ export default function TodoBox({ title, desc, id }) {
               className={style.textareaUpdate}
               placeholder="Description"
               value={inputDesc}
-              onChange={handleDesc}
+              onChange={(e) => setInputDesc(e.target.value)}
             ></textarea>
           </div>
 

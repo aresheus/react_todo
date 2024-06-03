@@ -8,14 +8,6 @@ export default function TodoInput() {
 
   const { handleSending } = useContext(TodoContext);
 
-  function handleTitle(e) {
-    setInputTitle(e.target.value);
-  }
-
-  function handleDesc(e) {
-    setInputDesc(e.target.value);
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
     if (inputTitle && inputDesc) {
@@ -41,7 +33,7 @@ export default function TodoInput() {
             placeholder="Title"
             className={style.input}
             value={inputTitle}
-            onChange={handleTitle}
+            onChange={(e) => setInputTitle(e.target.value)}
           />
         </div>
 
@@ -52,7 +44,7 @@ export default function TodoInput() {
             className={style.textarea}
             placeholder="Description"
             value={inputDesc}
-            onChange={handleDesc}
+            onChange={(e) => setInputDesc(e.target.value)}
           ></textarea>
         </div>
 
